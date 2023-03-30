@@ -14,7 +14,7 @@ import com.google.common.io.Files;
 
 //import com.google.api.services.drive.model.File;
 
-@ApplicationScoped
+//@ApplicationScoped
 public class PdfGeneratorRoute extends RouteBuilder{
 
     @Override

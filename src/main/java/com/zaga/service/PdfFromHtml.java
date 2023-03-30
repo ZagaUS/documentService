@@ -16,7 +16,7 @@ import io.quarkus.qute.TemplateInstance;
 @ApplicationScoped
 public class PdfFromHtml {
     
-@Location("Quotation.html")
+@Location("Quote.html")
 Template quoteTemplate;
 
 
