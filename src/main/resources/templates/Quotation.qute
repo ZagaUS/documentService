@@ -26,7 +26,7 @@
       }
 
       .right {
-        width: -65%;
+        width: 65%;
         height: 100%;
       }
     </style>
@@ -34,12 +34,7 @@
   <body>
     <header>
       <figure>
-        <img
-          src="src/main/resources/zagaos.png"
-          alt="zagaos"
-          width="700"
-          height="80"
-        />
+        <img src="zagaos.png" alt="zagaos" width="700" height="80" />
       </figure>
 
       <h1>Quotation</h1>
@@ -62,7 +57,7 @@
             <strong>Quotation Date&nbsp;:</strong> 2021-01-01 <br />
             <strong
               >Valid
-              Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong
+              Till&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong
             >
             2021-01-31 <br />
           </p>
@@ -71,7 +66,6 @@
 
       <div class="to">
         <p>
-          <strong>To:</strong> <br />
           Red Hat Asia Pacific Pte Ltd (“Red Hat”), <br />
           88 Market Street, Level 45 CapitaSpring, <br />
           Singapore 048948. <br />
@@ -79,6 +73,9 @@
       </div>
 
       <table>
+        <!-- <caption>
+                <strong>Project Name : Credit Initiation (CI) , Citi Bank , Singapore</strong> <br>
+            </caption> -->
         <p>
           <strong
             >Project Name : Credit Initiation (CI) , Citi Bank ,
@@ -121,7 +118,7 @@
           </tr>
           <tr>
             <td colspan="5" style="text-align: right">Total Amount</td>
-            <td>{amount}</td>
+            <td>$0.00</td>
           </tr>
         </tfoot>
       </table>
