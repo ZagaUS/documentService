@@ -10,13 +10,12 @@ public class QutePdfProcess implements Processor {
 
     @Override
     public void process(Exchange exchange) throws Exception {
+        // Getting the dynamic values from Header
         String amount = exchange.getIn().getHeader("amount", String.class);
-
 
         // Set the dynamic values in the data map
         Map<String, Object> data = new HashMap<>();
         data.put("amount", amount);
-
 
         // Render the template using the dynamic values
         String rendered = exchange.getContext().createProducerTemplate()
