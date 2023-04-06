@@ -1,0 +1,85 @@
+{@com.zaga.model.WeeklyTimesheet weekly}
+{@java.util.List<String>
+  redhatOwners}
+  {@java.util.List<com.zaga.model.DailyTimesheet>
+    timesheets}
+   
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Timesheet</title>
+      <style>
+        .container {
+          width: 700px;
+          margin-right: auto;
+          margin-left: auto;
+          padding: 2rem;
+        }
+
+        table,
+        th,
+        td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 0.5rem;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <img
+            src="src/main/resources/zagaos.png"
+            alt="zagaos"
+            width="700"
+            height="80"
+          />
+        </header>
+
+        <main>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Hours</th>
+                <th scope="col">Support Ticket</th>
+                <th scope="col">Citi Owner</th>
+                <th scope="col">Redhat Owner</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each timesheet in weekly.timesheets }
+              <tr>
+                <td>{timesheet.date}</td>
+                <td>
+                  Software <br />
+                  consulting service <br />provided for <br />
+                  Citi CI Project SG by <br />
+                  Sr. Consultant (Surendar)
+                </td>
+                <td>{timesheet.duration}</td>
+                <td>{timesheet.clientOwners}</td>
+                <td>
+                  <ul>
+                    {#for redHatOwner in timesheet.redHatOwners }
+                    <li>{redHatOwner}</li>
+                    {/for}
+                  </ul>
+                </td>
+                <td>{timesheet.description}</td>
+              </tr>
+              
+              {/each}
+            </tbody>
+          </table>
+        </main>
+
+        <footer></footer>
+      </div>
+    </body>
+  </html>
+</String>

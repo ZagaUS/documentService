@@ -1,20 +1,12 @@
 package com.zaga.routes;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 
-import com.itextpdf.html2pdf.HtmlConverter;
-
-@ApplicationScoped
+//@ApplicationScoped
 public class QuteRouter extends RouteBuilder {
 
   @Override
@@ -31,7 +23,7 @@ public class QuteRouter extends RouteBuilder {
     // .post()
     // .to("direct:convertToPdf");
 
-    from("file:src/main/resources/templates?noop=true")
+    from("file:src/main/resources/nofolder?noop=true")
         .routeId("convertToPdf")
         .setHeader("amount", constant(200))
         .log("----------------${header.amount}")
