@@ -1,11 +1,17 @@
 package com.zaga.resource;
 
+import java.io.IOException;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.apache.camel.Produce;
 
 import com.zaga.model.WeeklyTimesheet;
 import com.zaga.service.PdfFromHtml;
@@ -25,7 +31,15 @@ public class PdfGeneratorApi {
 
     @POST
     @Path("/createTimesheet")
-    public TemplateInstance generateTimesheetPdf(WeeklyTimesheet weeklyTimesheet) {
+    // @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response generateTimesheetPdf(WeeklyTimesheet weeklyTimesheet) {
+        System.out.println(weeklyTimesheet);
         return service.TimesheetTemplateGenerate(weeklyTimesheet);
+    }
+
+    @GET
+    @Path("/createInvoice")
+    public Response generateinvoicePdf() throws IOException {
+        return service.invoiceTemplateGenerate();
     }
 }
