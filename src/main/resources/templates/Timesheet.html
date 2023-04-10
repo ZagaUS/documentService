@@ -1,6 +1,8 @@
 {@com.zaga.model.WeeklyTimesheet weekly}
 {@java.util.List<String>
   redhatOwners}
+  {@java.util.List<String>
+    clientOwners}
   {@java.util.List<com.zaga.model.DailyTimesheet>
     timesheets}
    
@@ -59,14 +61,20 @@
                   Software <br />
                   consulting service <br />provided for <br />
                   Citi CI Project SG by <br />
-                  Sr. Consultant (Surendar)
+                     Sr. Consultant (Surendar)
                 </td>
                 <td>{timesheet.duration}</td>
-                <td>{timesheet.clientOwners}</td>
+                <td>
+                  <ul>
+                    {#for clientOwner in timesheet.clientOwners }
+                    <br>{clientOwner}</br>
+                    {/for}
+                  </ul>
+                </td>
                 <td>
                   <ul>
                     {#for redHatOwner in timesheet.redHatOwners }
-                    <li>{redHatOwner}</li>
+                    <br>{redHatOwner}</br>
                     {/for}
                   </ul>
                 </td>

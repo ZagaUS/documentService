@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 1rem; 
+            /* margin: 2rem; */
+        }
+
+        .container {
+            width: 700px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 2rem;
+        }
+
+        .address {
+            display: flex;
+            height: 100px;
+        }
+
+        .left {
+            width: 70%;
+        }
+
+        .right {
+            flex-grow: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="zagaos.png" alt="zagaos" width="700" height="80">
+        </header>
+    
+        <main>
+            <div class="address">
+                <div class="left">
+                    <p>
+                        ZAGA OPEN SOURCE PRIVATE  LIMITED <br>
+                        274 A/5, K.R.Nagar <br>		       		
+                        Kovilpatti,  <br>
+                        Tamil Nadu , 628503
+                    </p>    
+                </div>
+                <div class="right">
+                    <p>
+                        Invoice #:  CI_1018 <br>
+                        Date: 12/12/2021
+                    </p>
+                </div>
+            </div>
+
+            <div class="details">
+                <p>
+                    Phone : +91 9894519376 <br>
+                    Email  : vasanthi@zagaopensource.com
+                </p>
+            </div>
+
+            <div class="invoicedetails">
+                <p>
+                    GST  # : 33AABCZ3889N1ZL <br>
+                    PAN  # : AABCZ3889N <br>
+                    CIN  # : U72900TN2019OPC130150
+                </p>
+            </div>
+
+            <table>
+                <p><strong>Bank Detail :</strong></p>
+                <tr>
+                    <th>Bank and Branch Name</th>
+                    <td>INDIAN OVERSEAS BANK - INDIAN OVERSEAS BANK - KR NAGAR BRANCH:</td>
+                </tr>
+
+                <tr>
+                    <th>Bank Account # </th>
+                    <td>174902000000589</td>
+                </tr>
+
+                <tr>
+                    <th>Type of Bank Account</th>
+                    <td>CURRENT</td>
+                </tr>
+
+                <tr>
+                    <th>IFSC</th>
+                    <td>IOBA0001749</td>
+                </tr>
+
+                <tr>
+                    <th>SWIFT CODE</th>
+                    <td>IOBAINBB001</td>
+                </tr>
+            </table>
+
+            <br>
+
+            <div class="billto">
+                <p>
+                    <p><strong>Bill To:</strong></p>
+                    Red Hat Asia Pacific Pte Ltd (“Red Hat”), <br>
+                    88 Market Street, Level 45 CapitaSpring,  <br>
+                    Singapore 048948.
+
+                </p>
+            </div>
+        </main>
+    
+        <footer>
+    
+        </footer>
+    </div>
+</body>
+</html>
