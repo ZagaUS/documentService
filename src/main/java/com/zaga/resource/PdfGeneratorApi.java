@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.camel.Produce;
 
+import com.zaga.model.Invoice;
 import com.zaga.model.WeeklyTimesheet;
 import com.zaga.service.PdfFromHtml;
 
@@ -37,9 +38,9 @@ public class PdfGeneratorApi {
         return service.TimesheetTemplateGenerate(weeklyTimesheet);
     }
 
-    @GET
+    @POST
     @Path("/createInvoice")
-    public Response generateinvoicePdf() throws IOException {
-        return service.invoiceTemplateGenerate();
+    public Response generateinvoicePdf(Invoice invoice) throws IOException {
+        return service.invoiceTemplateGenerate(invoice);
     }
 }

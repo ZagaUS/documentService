@@ -1,3 +1,4 @@
+{@com.zaga.model.Invoice invoice}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
             border: 1px solid black;
             border-collapse: collapse;
             padding: 1rem; 
-            /* margin: 2rem; */
+            margin: 0.srem;
         }
 
         .container {
@@ -26,12 +27,12 @@
         }
 
         .left {
-            width: 70%;
+            width: 60%;
         }
 
-        .right {
+        /* .right {
             flex-grow: 1;
-        }
+        } */
 
     </style>
 </head>
@@ -42,7 +43,7 @@
         </header>
     
         <main>
-            <div class="address">
+            <!-- <div class="address">
                 <div class="left">
                     <p>
                         ZAGA OPEN SOURCE PRIVATE  LIMITED <br>
@@ -54,9 +55,18 @@
                 <div class="right">
                     <p>
                         Invoice #:  CI_1018 <br>
-                        Date: 12/12/2021
+                        Date: {invoice.date}
                     </p>
                 </div>
+            </div> -->
+
+            <div class="address">
+                <p>
+                    ZAGA OPEN SOURCE PRIVATE  LIMITED      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoice #:  CI_1018<br>
+                    274 A/5, K.R.Nagar  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Date: {invoice.date}<br>		       		
+                    Kovilpatti,  <br>
+                    Tamil Nadu , 628503
+                </p>  
             </div>
 
             <div class="details">
@@ -107,9 +117,7 @@
             <div class="billto">
                 <p>
                     <p><strong>Bill To:</strong></p>
-                    Red Hat Asia Pacific Pte Ltd (“Red Hat”), <br>
-                    88 Market Street, Level 45 CapitaSpring,  <br>
-                    Singapore 048948.
+                    {invoice.clientAddress}
 
                 </p>
             </div>

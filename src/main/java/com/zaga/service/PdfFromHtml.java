@@ -24,6 +24,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
+import com.zaga.model.Invoice;
 import com.zaga.model.WeeklyTimesheet;
 
 import io.quarkus.qute.Location;
@@ -78,14 +79,14 @@ public class PdfFromHtml {
 
     }
 
-    public Response invoiceTemplateGenerate() throws IOException {
+    public Response invoiceTemplateGenerate(Invoice invoice) throws IOException {
 
-        // System.out.println("--------------" + weekly);
-        // Map<String, Object> data = new HashMap<>();
-        // data.put("weekly", weekly);
+        System.out.println("--------------" + invoice);
+        Map<String, Object> data = new HashMap<>();
+        data.put("invoice", invoice);
 
-        String htmlOne = invoiceOneTemplate.render();
-        String htmlTwo = invoiceTwoTemplate.render();
+        String htmlOne = invoiceOneTemplate.data(data).render();
+        String htmlTwo = invoiceTwoTemplate.data(data).render();
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
