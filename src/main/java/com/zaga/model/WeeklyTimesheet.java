@@ -14,10 +14,13 @@ import lombok.NoArgsConstructor;
 @TemplateData
 public class WeeklyTimesheet {
 
+    public String invoiceId;
     public String projectId;
     public String employeeName;
     public String weeklyTimesheetId;
-    public String duration;
+    public String projectName;
+    public String employeeRole;
+    public Double duration;
     public LocalDate startDate;
     public LocalDate endDate;
     public List<DailyTimesheet> timesheets;
