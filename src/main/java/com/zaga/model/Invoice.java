@@ -10,17 +10,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Invoice {
-
+    // dyn
+    public String invoiceId;
+    // dyn
     public LocalDate date;
     public String clientAddress;
+    // dyn
+    public String projectName;
+    // dyn
+    public String consultant;
+    public String note;
     public String payOrder;
     public String sfdc;
     public String pa;
-    public String duration;
-    public Float rate;
     public Float totalManDays;
-    public Float manDays;
+    // dyn duration
+    public Float manHours;
     public Float invoiceAmount;
-    public Float tolaInvoiceAmount;
+    public Float totalInvoiceAmount;
+
+    public String projectId;
+    public LocalDate startDate;
+    public LocalDate endDate;
 
 }
