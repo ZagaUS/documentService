@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TemplateData
 public class WeeklyTimesheet {
-
-    public String invoiceId;
+    // public String id;
+    // public String invoiceId;
     public String projectId;
     public String employeeName;
     public String weeklyTimesheetId;

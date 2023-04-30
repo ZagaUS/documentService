@@ -58,12 +58,9 @@
               <tr>
                 <td>{timesheet.date}</td>
                 <td>
-                  Software <br />
-                  consulting service <br />provided for <br />
-                  Citi CI Project SG by <br />
-                     Sr. Consultant (Surendar)
+                  {timesheet.hours}
                 </td>
-                <td>{timesheet.duration}</td>
+                <td>{timesheet.supportTicket}</td>
                 <td>
                   <ul>
                     {#for clientOwner in timesheet.clientOwners }
