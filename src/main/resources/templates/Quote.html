@@ -1,3 +1,4 @@
+{@com.zaga.model.Quote quote}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,6 +30,11 @@
         width: -65%;
         height: 100%;
       }
+
+      .wordwrap {
+        word-wrap: break-word;
+        max-width: 200px;
+      }
     </style>
   </head>
   <body>
@@ -48,23 +54,19 @@
     <main>
       <div class="address">
         <div class="left">
-          <p>
-            ZAGA OPENSOURCE PRIVATE LIMITED<br />
-            274 A/5, K.R.Nagar <br />Kovilpatti, <br />
-            Tamil Nadu , 628503 <br />
-            Phone : +91 9894519376 <br />
-          </p>
+          <p class="wordwrap">{quote.from}</p>
         </div>
         <div class="right">
           <p>
-            <strong>Quotation No&nbsp;&nbsp;&nbsp;&nbsp;:</strong> 2021-0001
+            <strong>Quotation No&nbsp;&nbsp;&nbsp;&nbsp;:</strong>
+            2023-{quote.quoteId}
             <br />
-            <strong>Quotation Date&nbsp;:</strong> 2021-01-01 <br />
+            <strong>Quotation Date&nbsp;:</strong> {quote.date} <br />
             <strong
               >Valid
               Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong
             >
-            2021-01-31 <br />
+            {quote.validDate} <br />
           </p>
         </div>
       </div>
@@ -72,9 +74,7 @@
       <div class="to">
         <p>
           <strong>To:</strong> <br />
-          Red Hat Asia Pacific Pte Ltd (“Red Hat”), <br />
-          88 Market Street, Level 45 CapitaSpring, <br />
-          Singapore 048948. <br />
+          {quote.to}
         </p>
       </div>
 
@@ -102,26 +102,28 @@
             <td>
               Software <br />
               consulting service <br />provided for <br />
-              Citi CI Project SG by <br />
-              Sr. Consultant (Surendar)
+              {quote.projectName} by <br />
+              {quote.employeeRole} (Surendar)
             </td>
             <td>
               Nov 2022 to <br />
               Dec 2022
             </td>
-            <td>10</td>
-            <td>$0.00</td>
-            <td>$0.00</td>
+            <td>{quote.totalManDays}</td>
+            <td>{quote.unitPrice}</td>
+            <td>{quote.totalPrice}</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td colspan="5" style="text-align: right">GST 0 %</td>
-            <td>0.00</td>
+            <td colspan="5" style="text-align: right">
+              GST {quote.gstPercent} %
+            </td>
+            <td>{quote.gstAmount}</td>
           </tr>
           <tr>
             <td colspan="5" style="text-align: right">Total Amount</td>
-            <td>{amount}</td>
+            <td>{quote.totalAmount}</td>
           </tr>
         </tfoot>
       </table>

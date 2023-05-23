@@ -25,6 +25,7 @@ import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
 import com.zaga.model.Invoice;
+import com.zaga.model.Quote;
 import com.zaga.model.WeeklyTimesheet;
 
 import io.quarkus.qute.Location;
@@ -45,9 +46,9 @@ public class PdfFromHtml {
     @Location("InvoiceTwo.html")
     Template invoiceTwoTemplate;
 
-    public Response qoteTemplateGenerate(String amount) {
+    public Response qoteTemplateGenerate(Quote quote) {
 
-        String html = quoteTemplate.data("amount", amount).render();
+        String html = quoteTemplate.data("quote", quote).render();
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         OutputStream os = byteArrayOutputStream;
