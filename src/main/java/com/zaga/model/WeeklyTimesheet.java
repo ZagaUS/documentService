@@ -25,4 +25,9 @@ public class WeeklyTimesheet {
     public LocalDate endDate;
     public List<DailyTimesheet> timesheets;
     public TimesheetType timesheetType;
+
+    public Double manDaysCal(){
+        return duration/8;
+    }
+    
 }
