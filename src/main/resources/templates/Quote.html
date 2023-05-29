@@ -7,134 +7,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZagaOpenSource</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       h1 {
-        padding-left: 20%;
-        width: 65%;
+        text-align: center;
+      }
+      
+      .word-wrap {
+        white-space: normal;
+        word-break: break-all;
+        max-width: 250px;
+        text-align: justify;
       }
 
-      table,
-      th,
-      td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 0.5rem;
-      }
-
-      .address {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .right {
-        width: -65%;
-        height: 100%;
-      }
-
-      .wordwrap {
-        word-wrap: break-word;
-        max-width: 200px;
-      }
     </style>
   </head>
   <body>
-    <header>
-      <figure>
-        <img
-          src="src/main/resources/zagaos.png"
-          alt="zagaos"
-          width="700"
-          height="80"
-        />
-      </figure>
+    <div class="container" style="width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 2rem;
+        padding-left: 1rem">
+          <img src="src/main/resources/zagaos.png" alt="zagaos" width="700" height="80" />
 
-      <h1>Quotation</h1>
-    </header>
+          <h1>Quotation</h1>
 
-    <main>
-      <div class="address">
-        <div class="left">
-          <p class="wordwrap">{quote.from}</p>
+      <main>
+
+        <div class="from" style="display: flex; flex-wrap: wrap; border: 1px solid white;">
+          <div style="width: 250px; padding: 1px;">
+              <strong>From:</strong> <br />
+                  <p>
+                      ZAGA OPEN SOURCE PRIVATE  LIMITED <br>
+                      274 A/5, K.R.Nagar <br>		       		
+                      Kovilpatti,  <br>
+                      Tamil Nadu , 628503
+                  </p>
+          </div>
+
+          <div style="width: 250px; margin-left : 100px; padding: 1px; border: 1px solid white;">
+            <table style="width: 250px; margin-left : 100px; padding: 1px; border: 1px solid white;">
+              <tr>
+                <td>Quotation No:</td>
+                <td>2023-{quote.quoteId}</td>
+              </tr>
+
+              <tr>
+                <td>Quotation Date:</td>
+                <td>{quote.date}</td>
+              </tr>
+
+              <tr>
+                <td>Valid Date:</td>
+                <td>{quote.validDate}</td>
+              </tr>
+            </table>
+          </div>
+          
+            
         </div>
-        <div class="right">
+
+        <br>
+
+        <div class="to">
+            <strong>To:</strong> <br />
+            {quote.to}
+        </div>
+
+        <table style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
           <p>
-            <strong>Quotation No&nbsp;&nbsp;&nbsp;&nbsp;:</strong>
-            2023-{quote.quoteId}
-            <br />
-            <strong>Quotation Date&nbsp;:</strong> {quote.date} <br />
-            <strong
-              >Valid
-              Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong
-            >
-            {quote.validDate} <br />
+            <strong>Project Name : Credit Initiation (CI) , Citi Bank , Singapore</strong> <br />
           </p>
-        </div>
-      </div>
 
-      <div class="to">
-        <p>
-          <strong>To:</strong> <br />
-          {quote.to}
-        </p>
-      </div>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">S.No</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Service Description</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Period</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">QTY / MD</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Unit Price SGD / MD</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Total Price SGD</th>
+            </tr>
+          </thead>
 
-      <table>
-        <p>
-          <strong
-            >Project Name : Credit Initiation (CI) , Citi Bank ,
-            Singapore</strong
-          >
-          <br />
-        </p>
-        <thead>
-          <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Service Description</th>
-            <th scope="col">Period</th>
-            <th scope="col">QTY / MD</th>
-            <th scope="col">Unit Price SGD / MD</th>
-            <th scope="col">Total Price SGD</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>
-              Software <br />
-              consulting service <br />provided for <br />
-              {quote.projectName} by <br />
-              {quote.employeeRole} (Surendar)
-            </td>
-            <td>
-              Nov 2022 to <br />
-              Dec 2022
-            </td>
-            <td>{quote.totalManDays}</td>
-            <td>{quote.unitPrice}</td>
-            <td>{quote.totalPrice}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5" style="text-align: right">
-              GST {quote.gstPercent} %
-            </td>
-            <td>{quote.gstAmount}</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="text-align: right">Total Amount</td>
-            <td>{quote.totalAmount}</td>
-          </tr>
-        </tfoot>
-      </table>
-    </main>
-    <br />
-    <br />
+          <tbody>
+            <tr>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">1</td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+                Software <br />
+                consulting service <br />provided for <br />
+                {quote.projectName} by <br />
+                {quote.employeeRole} (Surendar)
+              </td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+                Nov 2022 to <br />
+                Dec 2022
+              </td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.totalManDays}</td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.unitPrice}</td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.totalPrice}</td>
+            </tr>
+          </tbody>
+          
+          <tfoot>
+            <tr>
+              <td colspan="5" style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+                GST {quote.gstPercent} %
+              </td>
+              <td style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.gstAmount}</td>
+            </tr>
+            <tr>
+              <td colspan="5" style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Total Amount</td>
+              <td style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.totalAmount}</td>
+            </tr>
+          </tfoot>
+        </table>
+        
+      </main>
 
-    <footer>
-      <b>Note :</b> <br />
-      Prices quoted in SGD <br />
-      <b>54</b>
-    </footer>
+      <br />
+
+      <footer>
+        <b>Note :</b> <br />
+        Prices quoted in SGD <br />
+        <b>54</b>
+      </footer>
+
+    </div>
   </body>
 </html>
