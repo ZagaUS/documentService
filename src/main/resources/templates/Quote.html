@@ -24,49 +24,44 @@
     </style>
   </head>
   <body>
-    <div class="container" style="width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-        padding: 2rem;
-        padding-left: 1rem">
-          <img src="src/main/resources/zagaos.png" alt="zagaos" width="700" height="80" />
-
-          <h1>Quotation</h1>
-
+    <div class="container" style="width: 700px; margin-right: auto; margin-left: auto; padding: 2rem; padding-left: 1rem">
+      <img src="src/main/resources/zagaos.png" alt="zagaos" width="700" height="80" />
+    
+      <h1>Quotation</h1>
+    
       <main>
-
-        <div class="from" style="display: flex; flex-wrap: wrap; border: 1px solid white;">
-          <div style="width: 250px; padding: 1px;">
-              <strong>From:</strong> <br />
-                  <p>
-                      ZAGA OPEN SOURCE PRIVATE  LIMITED <br>
-                      274 A/5, K.R.Nagar <br>		       		
-                      Kovilpatti,  <br>
-                      Tamil Nadu , 628503
-                  </p>
-          </div>
-
-          <div style="width: 250px; margin-left : 100px; padding: 1px; border: 1px solid white;">
-            <table style="width: 250px; margin-left : 100px; padding: 1px; border: 1px solid white;">
-              <tr>
-                <td>Quotation No:</td>
-                <td>2023-{quote.quoteId}</td>
-              </tr>
-
-              <tr>
-                <td>Quotation Date:</td>
-                <td>{quote.date}</td>
-              </tr>
-
-              <tr>
-                <td>Valid Date:</td>
-                <td>{quote.validDate}</td>
-              </tr>
-            </table>
-          </div>
-          
+        <table style="width: 650px; padding: 1px; border: 1px solid white;">
+          <tr>
+            <td style="width: 60%;">
+              <strong>From:</strong> <br>
+              ZAGA OPEN SOURCE PRIVATE LIMITED <br>
+              274 A/5, K.R.Nagar <br>
+              Kovilpatti, <br>
+              Tamil Nadu, 628503<br>
+            </td>
+            <td style="width: 40%; text-align: right; float: right; padding-right: 0%;">
+              Quotation No:
             
-        </div>
+              2023-{quote.quoteId}  <br>
+            
+         
+    
+  
+            Quotation Date:
+            {quote.date}  <br>
+          
+    
+       
+            Valid Date:
+            {quote.validDate}  <br></td>
+          </tr>
+        </table>
+      </main>
+    
+      <!-- Rest of the code... -->
+   
+    
+            
 
         <br>
 
@@ -74,7 +69,8 @@
             <strong>To:</strong> <br />
             {quote.to}
         </div>
-
+        
+      
         <table style="border: 1px solid black;
         border-collapse: collapse;
         padding: 0.5rem;">
@@ -167,6 +163,8 @@
         Prices quoted in SGD <br />
         <b>54</b>
       </footer>
+    </div>
+  </div>
 
     </div>
   </body>
