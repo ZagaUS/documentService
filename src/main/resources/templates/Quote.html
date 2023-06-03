@@ -32,14 +32,14 @@
       <main>
         <table style="width: 650px; padding: 1px; border: 1px solid white;">
           <tr>
-            <td style="width: 60%;">
+            <td style="width: calc(60% - 10px);">
               <strong>From:</strong> <br>
               ZAGA OPEN SOURCE PRIVATE LIMITED <br>
               274 A/5, K.R.Nagar <br>
               Kovilpatti, <br>
               Tamil Nadu, 628503<br>
             </td>
-            <td style="width: 40%; text-align: right; float: right; padding-right: 0%;">
+            <td style="width: calc(40% - 10px); text-align: right; float: right; padding-right: 0px;">
               Quotation No:
             
               2023-{quote.quoteId}  <br>
@@ -75,7 +75,7 @@
         border-collapse: collapse;
         padding: 0.5rem;">
           <p>
-            <strong>Project Name : Credit Initiation (CI) , Citi Bank , Singapore</strong> <br />
+            <strong>Project Name : {quote.projectName}</strong> <br />
           </p>
 
           <thead>
@@ -112,13 +112,13 @@
                 Software <br />
                 consulting service <br />provided for <br />
                 {quote.projectName} by <br />
-                {quote.employeeRole} (Surendar)
+                {quote.employeeRole} ({quote.employeeName})
               </td>
               <td style="border: 1px solid black;
         border-collapse: collapse;
         padding: 0.5rem;">
-                Nov 2022 to <br />
-                Dec 2022
+                {quote.date} to <br />
+                {quote.validDate}
               </td>
               <td style="border: 1px solid black;
         border-collapse: collapse;
