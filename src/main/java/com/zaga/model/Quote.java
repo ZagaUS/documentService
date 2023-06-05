@@ -1,5 +1,7 @@
 package com.zaga.model;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,8 +14,10 @@ public class Quote {
     public String quoteId;
     public String projectId;
     public String quoteStatus;
-    public String date; // start date
-    public String validDate; // endDate
+    public LocalDate date; 
+    public LocalDate startDate;
+    public LocalDate endDate;
+    public LocalDate validDate;
     public String from; // companyAddress
     public String to; // clientAddress
     public String serviceDescription;
