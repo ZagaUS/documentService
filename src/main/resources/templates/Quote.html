@@ -94,10 +94,10 @@
         padding: 0.5rem;">QTY / MD</th>
               <th scope="col" style="border: 1px solid black;
         border-collapse: collapse;
-        padding: 0.5rem;">Unit Price SGD / MD</th>
+        padding: 0.5rem;">Unit Price {quote.clientCurrency} / MD</th>
               <th scope="col" style="border: 1px solid black;
         border-collapse: collapse;
-        padding: 0.5rem;">Total Price SGD</th>
+        padding: 0.5rem;">Total Price {quote.clientCurrency} </th>
             </tr>
           </thead>
 
@@ -137,11 +137,11 @@
               <td colspan="5" style="text-align: right; border: 1px solid black;
         border-collapse: collapse;
         padding: 0.5rem;">
-                GST {quote.gstPercent} %
+                WHT
               </td>
               <td style="text-align: right; border: 1px solid black;
         border-collapse: collapse;
-        padding: 0.5rem;">{quote.gstAmount}</td>
+        padding: 0.5rem;">{quote.whtAmount}</td>
             </tr>
             <tr>
               <td colspan="5" style="text-align: right; border: 1px solid black;
@@ -160,8 +160,8 @@
 
       <footer>
         <b>Note :</b> <br />
-        Prices quoted in SGD <br />
-        <b>54</b>
+        Prices quoted in {quote.clientCurrency}  <br />
+        <!-- <b>54</b> -->
       </footer>
     </div>
   </div>
