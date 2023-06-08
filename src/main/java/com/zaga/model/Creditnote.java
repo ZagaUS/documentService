@@ -1,8 +1,14 @@
 package com.zaga.model;
 
 import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class Creditnote {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CreditNote {
     
 
     public String creditNoteId;
@@ -13,7 +19,7 @@ public class Creditnote {
     public String po;
     public String sfdc;
     public String pa;
-    public Currency currencyType;
+    public String currencyType;
     public Float paidAmount;
     public Float actualAmount;
     public Float creditAmount;
