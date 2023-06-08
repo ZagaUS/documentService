@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.camel.Produce;
 
+import com.zaga.model.Creditnote;
 import com.zaga.model.Invoice;
 import com.zaga.model.Quote;
 import com.zaga.model.WeeklyTimesheet;
@@ -43,5 +44,11 @@ public class PdfGeneratorApi {
     @Path("/createInvoice")
     public Response generateinvoicePdf(Invoice invoice) throws IOException {
         return service.invoiceTemplateGenerate(invoice);
+    }
+
+    @POST
+    @Path("/createCreditNote")
+    public Response generateCreditNotePdf(Creditnote creditnote)throws IOException{
+        return service.creditnoteTemplateGenerate(creditnote);
     }
 }

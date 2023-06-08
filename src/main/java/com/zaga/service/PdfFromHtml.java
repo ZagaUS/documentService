@@ -24,6 +24,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
+import com.zaga.model.Creditnote;
 import com.zaga.model.Invoice;
 import com.zaga.model.Quote;
 import com.zaga.model.WeeklyTimesheet;
@@ -46,9 +47,26 @@ public class PdfFromHtml {
     @Location("InvoiceTwo.html")
     Template invoiceTwoTemplate;
 
+    @Location("Creditnote.html")
+    Template creditnoteTemplate;
     public Response qoteTemplateGenerate(Quote quote) {
 
         String html = quoteTemplate.data("quote", quote).render();
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        OutputStream os = byteArrayOutputStream;
+        HtmlConverter.convertToPdf(html, os);
+
+        byte[] pdfBytes = byteArrayOutputStream.toByteArray();
+
+        return Response.ok(pdfBytes).build();
+
+    }
+
+
+    public Response creditnoteTemplateGenerate(Creditnote quote) {
+
+        String html = creditnoteTemplate.data("quote", quote).render();
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         OutputStream os = byteArrayOutputStream;
