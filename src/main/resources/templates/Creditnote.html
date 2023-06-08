@@ -1,3 +1,4 @@
+{@com.zaga.model.Creditnote cr}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,25 +75,25 @@
             <th scope="col">PO # </th>
             <th scope="col">SFDC # </th>
             <th scope="col">PA # </th>
-            <th scope="col">Paid Amount <br> SGD</th>
-            <th scope="col">Actual <br> SGD</th>
-            <th scope="col">Credit Amount <br> SGD</th>
+            <th scope="col">Paid Amount <br> (CurrencyType)</th>
+            <th scope="col">Actual <br> (CurrencyType)</th>
+            <th scope="col">Credit Amount <br> (CurrencyType)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>7310013795</td>
-            <td>4310460</td>
-            <td>51395</td>
-            <td>100.00</td>
-            <td>80.00 </td>
-            <td>$20.00</td>
+            <td>{cr.po}</td>
+            <td>{cr.sfdc}</td>
+            <td>{cr.pa}</td>
+            <td>{cr.paidAmount} {cr.currencyType}</td>
+            <td>{cr.actualAmount} {cr.currencyType} </td>
+            <td>{cr.creditAmount} {cr.currencyType}</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td colspan="5" style="text-align: right">Total credit amount back to next invoice</td>
-            <td>$20.00</td>
+            <td>{cr.creditAmount}</td>
           </tr>
         </tfoot>
       </table>
@@ -105,6 +106,6 @@
   <footer>
     <p><strong>Authorized Signature</strong></p>
 
-    <p><strong>Vasanthalakshmi V</strong><br><strong>Nov 16, 2022</strong></p>
+    <p><strong>Vasanthalakshmi V</strong><br><strong>{cr.date}</strong></p>
   </footer>
 </html>

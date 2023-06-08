@@ -1,5 +1,7 @@
 package com.zaga.model;
 
+import java.time.LocalDate;
+
 public class Creditnote {
     
 
@@ -16,5 +18,6 @@ public class Creditnote {
     public Float actualAmount;
     public Float creditAmount;
     public String projectId;
+    public LocalDate date;
     public String projectName;
 }
