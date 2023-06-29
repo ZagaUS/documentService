@@ -1,5 +1,5 @@
 package com.zaga.model;
 
 public enum Currency {
-    SGD
+    SGD, MYR, USD, EUR
 }

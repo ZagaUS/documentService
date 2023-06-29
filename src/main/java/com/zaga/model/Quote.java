@@ -18,9 +18,9 @@ public class Quote {
     public LocalDate startDate;
     public LocalDate endDate;
     public LocalDate validDate;
-    public String from; // companyAddress
+    // public String from; // companyAddress
     public String to; // clientAddress
-    public String serviceDescription;
+    // public String serviceDescription;
     public Float totalManDays; // changed fieldname
     public Float unitPrice; // changed fieldname
     public Currency clientCurrency;
