@@ -1,3 +1,4 @@
+{@com.zaga.model.Invoice invoice}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,11 +82,11 @@
             <th>PO #</th>
             <th>SFDC #</th>
             <th>PA #</th>
-            <th>Week / SGD</th>
+            <th>Week / {invoice.clientCurrency}</th>
             <th>Total PO / MD</th>
-            <th>Daily Rate / SGD</th>
+            <th>Daily Rate / {invoice.clientCurrency}</th>
             <th>Qty / MD</th>
-            <th>Invoice Amount SGD</th>
+            <th>Invoice Amount {invoice.clientCurrency}</th>
           </tr>
 
           <tr>
@@ -96,7 +97,7 @@
             <td>{invoice.manHours}</td>
             <td>${invoice.rate}</td>
             <td>{invoice.totalManDays}</td>
-            <td>${invoice.invoiceAmount}</td>
+            <td>${invoice.invoiceAmount} {invoice.clientCurrency}</td>
           </tr>
 
           <tr>
