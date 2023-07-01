@@ -29,6 +29,8 @@ public class Invoice {
     public Float invoiceAmount;
     public Float totalInvoiceAmount;
 
+    public Currency clientCurrency;
+
     public String duration;
     public Float rate;
     public String projectId;
