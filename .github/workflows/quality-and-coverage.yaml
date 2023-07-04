@@ -1,0 +1,73 @@
+name: Code Quality and Coverage
+
+on:
+  pull_request:
+    # branches:
+      # - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run JaCoCo for Code Coverage
+        run: mvn jacoco:report
+
+      - name: Run SpotBugs for Static Code Analysis
+        run: mvn spotbugs:check
+
+      - name: Upload Code Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: target/site/jacoco/index.html
+
+      - name: Comment on Pull Request
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            const coverageReportPath = path.join(process.env.GITHUB_WORKSPACE, 'target/site/jacoco/index.html');
+            const coverageReport = fs.readFileSync(coverageReportPath, 'utf8');
+            
+            const spotbugsReportPath = path.join(process.env.GITHUB_WORKSPACE, 'target/spotbugsXml.xml');
+            const spotbugsReport = fs.readFileSync(spotbugsReportPath, 'utf8');
+            
+            const commentBody = `
+            ### Code Coverage
+            <details>
+            <summary>Coverage Report</summary>
+            
+            ${coverageReport}
+            
+            </details>
+            
+            ### Static Code Analysis (SpotBugs)
+            <details>
+            <summary>SpotBugs Report</summary>
+            
+            ${spotbugsReport}
+            
+            </details>
+            `;
+            
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
+            });
