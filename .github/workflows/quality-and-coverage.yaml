@@ -20,50 +20,16 @@ jobs:
           distribution: 'adopt'
 
       - name: Build with Maven
-        run: mvn clean verify
-        continue-on-error: true
-
-      - name: Upload Code Coverage Report
-        uses: actions/upload-artifact@v2
+        run: mvn clean package
+      
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
         with:
-          name: code-coverage-report
-          path: target/site/jacoco/index.html
+          paths: target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Coverage report
+          update-comment: true
 
-      - name: Comment on Pull Request
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const fs = require('fs');
-            const path = require('path');
-            
-            const coverageReportPath = path.join(process.env.GITHUB_WORKSPACE, 'target/site/jacoco/index.html');
-            const coverageReport = fs.readFileSync(coverageReportPath, 'utf8');
-            
-            const spotbugsReportPath = path.join(process.env.GITHUB_WORKSPACE, 'target/spotbugsXml.xml');
-            const spotbugsReport = fs.readFileSync(spotbugsReportPath, 'utf8');
-            
-            const commentBody = `
-            ### Code Coverage
-            <details>
-            <summary>Coverage Report</summary>
-            
-            ${coverageReport}
-            
-            </details>
-            
-            ### Static Code Analysis (SpotBugs)
-            <details>
-            <summary>SpotBugs Report</summary>
-            
-            ${spotbugsReport}
-            
-            </details>
-            `;
-            
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: commentBody
-            });
+      - name: Run SpotBugs for Static Code Analysis
+        run: mvn spotbugs:check
