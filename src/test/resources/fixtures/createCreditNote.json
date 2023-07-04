@@ -1,0 +1,17 @@
+{
+    "creditNoteId": "string",
+    "invoiceId": "string",
+    "clientAddress": "string",
+    "ref": "string",
+    "referenceInvoice": "string",
+    "po": "string",
+    "sfdc": "string",
+    "pa": "string",
+    "currencyType": "string",
+    "paidAmount": 0,
+    "actualAmount": 0,
+    "creditAmount": 0,
+    "projectId": "string",
+    "date": "2022-03-10",
+    "projectName": "string"
+}
