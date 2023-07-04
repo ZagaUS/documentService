@@ -2,24 +2,14 @@ package com.zaga.service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.itextpdf.html2pdf.HtmlConverter;
-// import com.itextpdf.text.pdf.PdfDocument;
-// import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -28,10 +18,8 @@ import com.zaga.model.CreditNote;
 import com.zaga.model.Invoice;
 import com.zaga.model.Quote;
 import com.zaga.model.WeeklyTimesheet;
-
 import io.quarkus.qute.Location;
 import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
 
 @ApplicationScoped
 public class PdfFromHtml {

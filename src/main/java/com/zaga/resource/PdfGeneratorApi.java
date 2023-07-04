@@ -48,6 +48,7 @@ public class PdfGeneratorApi {
 
     @POST
     @Path("/createCreditNote")
+    @Produces("application/pdf")
     public Response generateCreditNotePdf(CreditNote creditnote)throws IOException{
         return service.creditnoteTemplateGenerate(creditnote);
     }
