@@ -37,7 +37,7 @@ public class PdfGeneratorApi {
     // @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response generateTimesheetPdf(WeeklyTimesheet weeklyTimesheet) {
         System.out.println(weeklyTimesheet);
-        return service.TimesheetTemplateGenerate(weeklyTimesheet);
+        return service.timesheetTemplateGenerate(weeklyTimesheet);
     }
 
     @POST

@@ -70,7 +70,7 @@ public class PdfFromHtml {
 
     }
 
-    public Response TimesheetTemplateGenerate(WeeklyTimesheet weekly) {
+    public Response timesheetTemplateGenerate(WeeklyTimesheet weekly) {
 
         System.out.println("--------------" + weekly);
         Map<String, Object> data = new HashMap<>();
