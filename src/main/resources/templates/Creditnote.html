@@ -1,0 +1,106 @@
+{@com.zaga.model.CreditNote creditnote}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZagaOpenSource</title>
+    <style>
+      h1 {
+        padding-left: 20%;
+        width: 65%;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;
+      }
+
+      .address {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+        <img
+          src="/resources/zagaos.png"
+          alt="zagaos"
+          width="700"
+          height="80"
+        />
+
+      <h1>Credit Note</h1>
+    </header>
+
+    <main>
+      <div class="address">
+          <p>
+            ZAGA OPENSOURCE PRIVATE LIMITED<br />
+            274 A/5, K.R.Nagar <br />Kovilpatti, <br />
+            Tamil Nadu , 628503 <br />
+            Phone : +91 9894519376 <br />
+          </p>
+      </div>
+
+      <div class="to">
+        <p>
+          <strong>To:</strong> <br />
+        {creditnote.clientAddress}<br />
+        </p>
+      </div>
+
+      <table>
+        <p>
+          Ref : {creditnote.ref}
+          <br>
+        </p>
+
+        <p>Reference invoice #  {creditnote.referenceInvoice}</p>
+        <thead>
+          <tr>
+            <th scope="col">PO # </th>
+            <th scope="col">SFDC # </th>
+            <th scope="col">PA # </th>
+            <th scope="col">Paid Amount <br> {creditnote.currencyType}</th>
+            <th scope="col">Actual <br> {creditnote.currencyType}</th>
+            <th scope="col">Credit Amount <br> {creditnote.currencyType}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{creditnote.po}</td>
+            <td>{creditnote.sfdc}</td>
+            <td>{creditnote.pa}</td>
+            <td>{creditnote.paidAmount} {creditnote.currencyType}</td>
+            <td>{creditnote.actualAmount} {creditnote.currencyType} </td>
+            <td>{creditnote.creditAmount} {creditnote.currencyType}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" style="text-align: right">Total credit amount back to next invoice</td>
+            <td>{creditnote.creditAmount}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </main>
+    <br />
+    <br />
+
+  </body>
+
+  <footer>
+    <p><strong>Authorized Signature</strong></p>
+
+    <p><strong>Vasanthalakshmi V</strong><br><strong>{creditnote.date}</strong></p>
+  </footer>
+</html>

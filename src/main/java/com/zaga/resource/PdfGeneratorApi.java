@@ -13,7 +13,9 @@ import javax.ws.rs.core.Response;
 
 import org.apache.camel.Produce;
 
+import com.zaga.model.CreditNote;
 import com.zaga.model.Invoice;
+import com.zaga.model.Quote;
 import com.zaga.model.WeeklyTimesheet;
 import com.zaga.service.PdfFromHtml;
 
@@ -24,10 +26,10 @@ public class PdfGeneratorApi {
     @Inject
     PdfFromHtml service;
 
-    @GET
-    @Path("/{amount}")
-    public Response generatePdf(@PathParam("amount") String amount) {
-        return service.qoteTemplateGenerate(amount);
+    @POST
+    @Path("/quoteGeneration")
+    public Response generatePdf(Quote quote) {
+        return service.qoteTemplateGenerate(quote);
     }
 
     @POST
@@ -35,12 +37,19 @@ public class PdfGeneratorApi {
     // @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response generateTimesheetPdf(WeeklyTimesheet weeklyTimesheet) {
         System.out.println(weeklyTimesheet);
-        return service.TimesheetTemplateGenerate(weeklyTimesheet);
+        return service.timesheetTemplateGenerate(weeklyTimesheet);
     }
 
     @POST
     @Path("/createInvoice")
     public Response generateinvoicePdf(Invoice invoice) throws IOException {
         return service.invoiceTemplateGenerate(invoice);
+    }
+
+    @POST
+    @Path("/createCreditNote")
+    @Produces("application/pdf")
+    public Response generateCreditNotePdf(CreditNote creditnote)throws IOException{
+        return service.creditnoteTemplateGenerate(creditnote);
     }
 }

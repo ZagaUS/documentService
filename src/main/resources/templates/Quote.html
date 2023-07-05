@@ -1,3 +1,4 @@
+{@com.zaga.model.Quote quote}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,133 +7,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZagaOpenSource</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       h1 {
-        padding-left: 20%;
-        width: 65%;
+        text-align: center;
+      }
+      
+      .word-wrap {
+        white-space: normal;
+        word-break: break-all;
+        max-width: 250px;
+        text-align: justify;
       }
 
-      table,
-      th,
-      td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 0.5rem;
-      }
-
-      .address {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .right {
-        width: -65%;
-        height: 100%;
-      }
     </style>
   </head>
   <body>
-    <header>
-      <figure>
-        <img
-          src="src/main/resources/zagaos.png"
-          alt="zagaos"
-          width="700"
-          height="80"
-        />
-      </figure>
-
+    <div class="container" style="width: 700px; margin-right: auto; margin-left: auto; padding: 2rem; padding-left: 1rem">
+      <img src="/resources/zagaos.png" alt="zagaos" width="700" height="80" />
+    
       <h1>Quotation</h1>
-    </header>
-
-    <main>
-      <div class="address">
-        <div class="left">
-          <p>
-            ZAGA OPENSOURCE PRIVATE LIMITED<br />
-            274 A/5, K.R.Nagar <br />Kovilpatti, <br />
-            Tamil Nadu , 628503 <br />
-            Phone : +91 9894519376 <br />
-          </p>
-        </div>
-        <div class="right">
-          <p>
-            <strong>Quotation No&nbsp;&nbsp;&nbsp;&nbsp;:</strong> 2021-0001
-            <br />
-            <strong>Quotation Date&nbsp;:</strong> 2021-01-01 <br />
-            <strong
-              >Valid
-              Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong
-            >
-            2021-01-31 <br />
-          </p>
-        </div>
-      </div>
-
-      <div class="to">
-        <p>
-          <strong>To:</strong> <br />
-          Red Hat Asia Pacific Pte Ltd (“Red Hat”), <br />
-          88 Market Street, Level 45 CapitaSpring, <br />
-          Singapore 048948. <br />
-        </p>
-      </div>
-
-      <table>
-        <p>
-          <strong
-            >Project Name : Credit Initiation (CI) , Citi Bank ,
-            Singapore</strong
-          >
-          <br />
-        </p>
-        <thead>
+    
+      <main>
+        <table style="width: 650px; padding: 1px; border: 1px solid white;">
           <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Service Description</th>
-            <th scope="col">Period</th>
-            <th scope="col">QTY / MD</th>
-            <th scope="col">Unit Price SGD / MD</th>
-            <th scope="col">Total Price SGD</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>
-              Software <br />
-              consulting service <br />provided for <br />
-              Citi CI Project SG by <br />
-              Sr. Consultant (Surendar)
+            <td style="width: calc(60% - 10px);">
+              <strong>From:</strong> <br>
+              ZAGA OPEN SOURCE PRIVATE LIMITED <br>
+              274 A/5, K.R.Nagar <br>
+              Kovilpatti, <br>
+              Tamil Nadu, 628503<br>
             </td>
-            <td>
-              Nov 2022 to <br />
-              Dec 2022
-            </td>
-            <td>10</td>
-            <td>$0.00</td>
-            <td>$0.00</td>
+            <td style="width: calc(40% - 10px); text-align: right; float: right; padding-right: 0px;">
+              Quotation No:
+            
+              2023-{quote.quoteId}  <br>
+            
+         
+    
+  
+            Quotation Date:
+            {quote.date}  <br>
+          
+    
+       
+            Valid Date:
+            {quote.validDate}  <br></td>
           </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5" style="text-align: right">GST 0 %</td>
-            <td>0.00</td>
-          </tr>
-          <tr>
-            <td colspan="5" style="text-align: right">Total Amount</td>
-            <td>{amount}</td>
-          </tr>
-        </tfoot>
-      </table>
-    </main>
-    <br />
-    <br />
+        </table>
+      </main>
+    
+      <!-- Rest of the code... -->
+   
+    
+            
 
-    <footer>
-      <b>Note :</b> <br />
-      Prices quoted in SGD <br />
-      <b>54</b>
-    </footer>
+        <br>
+
+        <div class="to">
+            <strong>To:</strong> <br />
+            {quote.to}
+        </div>
+        
+      
+        <table style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+          <p>
+            <strong>Project Name : {quote.projectName}</strong> <br />
+          </p>
+
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">S.No</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Service Description</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Period</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">QTY / MD</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Unit Price {quote.clientCurrency} / MD</th>
+              <th scope="col" style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Total Price {quote.clientCurrency} </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">1</td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+                Software <br />
+                consulting service <br />provided for <br />
+                {quote.projectName} by <br />
+                {quote.employeeRole} ({quote.employeeName})
+              </td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+                {quote.startDate} to <br />
+                {quote.endDate}
+              </td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.totalManDays}</td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.unitPrice}</td>
+              <td style="border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.totalPrice}</td>
+            </tr>
+          </tbody>
+          
+          <tfoot>
+            <tr>
+              <td colspan="5" style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">
+                WHT
+              </td>
+              <td style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.whtAmount}</td>
+            </tr>
+            <tr>
+              <td colspan="5" style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">Total Amount</td>
+              <td style="text-align: right; border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0.5rem;">{quote.totalAmount}</td>
+            </tr>
+          </tfoot>
+        </table>
+        
+      </main>
+
+      <br />
+
+      <footer>
+        <b>Note :</b> <br />
+        Prices quoted in {quote.clientCurrency}  <br />
+        <!-- <b>54</b> -->
+      </footer>
+    </div>
+  </div>
+
+    </div>
   </body>
 </html>

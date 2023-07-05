@@ -2,34 +2,24 @@ package com.zaga.service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import com.itextpdf.html2pdf.HtmlConverter;
-// import com.itextpdf.text.pdf.PdfDocument;
-// import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
+import com.zaga.model.CreditNote;
 import com.zaga.model.Invoice;
+import com.zaga.model.Quote;
 import com.zaga.model.WeeklyTimesheet;
-
 import io.quarkus.qute.Location;
 import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
 
 @ApplicationScoped
 public class PdfFromHtml {
@@ -45,9 +35,13 @@ public class PdfFromHtml {
     @Location("InvoiceTwo.html")
     Template invoiceTwoTemplate;
 
-    public Response qoteTemplateGenerate(String amount) {
+    @Location("Creditnote.html")
+    Template creditnoteTemplate;
 
-        String html = quoteTemplate.data("amount", amount).render();
+
+    public Response qoteTemplateGenerate(Quote quote) {
+
+        String html = quoteTemplate.data("quote", quote).render();
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         OutputStream os = byteArrayOutputStream;
@@ -59,7 +53,24 @@ public class PdfFromHtml {
 
     }
 
-    public Response TimesheetTemplateGenerate(WeeklyTimesheet weekly) {
+
+    public Response creditnoteTemplateGenerate(CreditNote creditnote) {
+
+        System.out.println(creditnote);
+
+        String html = creditnoteTemplate.data("creditnote", creditnote).render();
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        OutputStream os = byteArrayOutputStream;
+        HtmlConverter.convertToPdf(html, os);
+
+        byte[] pdfBytes = byteArrayOutputStream.toByteArray();
+
+        return Response.ok(pdfBytes).build();
+
+    }
+
+    public Response timesheetTemplateGenerate(WeeklyTimesheet weekly) {
 
         System.out.println("--------------" + weekly);
         Map<String, Object> data = new HashMap<>();

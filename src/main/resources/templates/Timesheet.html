@@ -28,13 +28,18 @@
           border-collapse: collapse;
           padding: 0.5rem;
         }
+        .word-wrap {
+          white-space: normal;
+          word-break: break-all;
+          max-width: 250px;
+        }
       </style>
     </head>
     <body>
       <div class="container">
         <header>
           <img
-            src="src/main/resources/zagaos.png"
+            src="/resources/zagaos.png"
             alt="zagaos"
             width="700"
             height="80"
@@ -42,47 +47,62 @@
         </header>
 
         <main>
+          <div class="main-header">
+            <h3 style="text-align: center;">Timesheet</h3>
+            <br />
+            <p>Total Hours {weekly.employeeName} : ({weekly.manDaysCal()})</p>
+          </div>
+
+          <br />
+          <br />
+
+          <div>
+            <p>Period : {weekly.startDate} to {weekly.endDate}</p>
+            <p>Project : {weekly.projectName}</p>
+            <p>Consultant : {weekly.employeeName}</p>
+          </div>
+
           <table>
-            <thead>
               <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Hours</th>
-                <th scope="col">Support Ticket</th>
-                <th scope="col">Citi Owner</th>
-                <th scope="col">Redhat Owner</th>
-                <th scope="col">Description</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Support Ticket</th>
+                <th>Citi Owner</th>
+                <th>Redhat Owner</th>
+                <th>Description</th>
               </tr>
-            </thead>
-            <tbody>
+            
               {#each timesheet in weekly.timesheets }
               <tr>
-                <td>{timesheet.date}</td>
-                <td>
-                  Software <br />
-                  consulting service <br />provided for <br />
-                  Citi CI Project SG by <br />
-                     Sr. Consultant (Surendar)
+                <td class="word-wrap">{timesheet.date}</td>
+                <td class="word-wrap">
+                  {timesheet.hours}
                 </td>
-                <td>{timesheet.duration}</td>
-                <td>
+                <td class="word-wrap">{timesheet.supportTicket}</td>
+                <td class="word-wrap">
                   <ul>
                     {#for clientOwner in timesheet.clientOwners }
                     <br>{clientOwner}</br>
                     {/for}
                   </ul>
                 </td>
-                <td>
+                <td class="word-wrap">
                   <ul>
                     {#for redHatOwner in timesheet.redHatOwners }
                     <br>{redHatOwner}</br>
                     {/for}
                   </ul>
                 </td>
-                <td>{timesheet.description}</td>
+                <td class="word-wrap">{timesheet.description}</td>
               </tr>
               
               {/each}
-            </tbody>
+
+              <tr>
+                <td colspan="1" style="text-align: right">Total</td>
+                <td colspan="2" style="text-align: left">{weekly.duration}</td>
+              </tr>
+
           </table>
         </main>
 
