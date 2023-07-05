@@ -2,8 +2,8 @@ name: Code Quality and Coverage
 
 on:
   pull_request:
-    # branches:
-      # - main
+    branches:
+      - main
 
 jobs:
   build:
