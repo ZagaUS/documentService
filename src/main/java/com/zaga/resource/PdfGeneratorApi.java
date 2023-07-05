@@ -37,7 +37,7 @@ public class PdfGeneratorApi {
     // @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response generateTimesheetPdf(WeeklyTimesheet weeklyTimesheet) {
         System.out.println(weeklyTimesheet);
-        return service.TimesheetTemplateGenerate(weeklyTimesheet);
+        return service.timesheetTemplateGenerate(weeklyTimesheet);
     }
 
     @POST
@@ -48,6 +48,7 @@ public class PdfGeneratorApi {
 
     @POST
     @Path("/createCreditNote")
+    @Produces("application/pdf")
     public Response generateCreditNotePdf(CreditNote creditnote)throws IOException{
         return service.creditnoteTemplateGenerate(creditnote);
     }

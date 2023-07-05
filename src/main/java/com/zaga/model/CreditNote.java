@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreditNote {
-    
 
     public String creditNoteId;
     public String invoiceId;
